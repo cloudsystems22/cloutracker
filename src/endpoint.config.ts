@@ -1,3 +1,4 @@
+require('dotenv').config();
 export default{
     appSecret: process.env.APP_SECRET ?? '',
     mongoUri: process.env.MONGO_ATLAS ?? '',

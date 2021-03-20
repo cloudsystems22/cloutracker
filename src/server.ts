@@ -1,4 +1,5 @@
 import { app } from "./app";
+require('dotenv').config();
 import './entities/implementations/Conexao'
 
 app.listen(process.env.PORT || 9001, () => {

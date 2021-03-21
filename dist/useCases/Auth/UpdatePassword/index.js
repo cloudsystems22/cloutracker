@@ -1,0 +1,11 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.updatePassorwdController = exports.updatePasswordUsecase = void 0;
+const MongodbAuthRepository_1 = require("../../../repositories/implementations/MongodbAuthRepository");
+const UpdatePasswordController_1 = require("./UpdatePasswordController");
+const UpdatePasswordUseCase_1 = require("./UpdatePasswordUseCase");
+const mongodbAuthRepository = new MongodbAuthRepository_1.MongodbAuthRepository();
+const updatePasswordUsecase = new UpdatePasswordUseCase_1.UpdatePasswordUseCase(mongodbAuthRepository);
+exports.updatePasswordUsecase = updatePasswordUsecase;
+const updatePassorwdController = new UpdatePasswordController_1.UpdatePasswordController(updatePasswordUsecase);
+exports.updatePassorwdController = updatePassorwdController;

@@ -1,0 +1,15 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.createUserController = exports.createUserUseCase = void 0;
+const UmblerMailProvider_1 = require("../../../providers/implementations/UmblerMailProvider");
+const TwilioSmsProvider_1 = require("../../../providers/implementations/TwilioSmsProvider");
+const MongodbUserRepository_1 = require("../../../repositories/implementations/MongodbUserRepository");
+const CreateUserController_1 = require("./CreateUserController");
+const CreateUserUseCase_1 = require("./CreateUserUseCase");
+const mongodbUserRepository = new MongodbUserRepository_1.MongodbUserRepository();
+const umblerMailProvider = new UmblerMailProvider_1.UmblerMailProvider();
+const twilioSmsProvider = new TwilioSmsProvider_1.TwilioSmsProvider();
+const createUserUseCase = new CreateUserUseCase_1.CreateUserUseCase(mongodbUserRepository, umblerMailProvider, twilioSmsProvider);
+exports.createUserUseCase = createUserUseCase;
+const createUserController = new CreateUserController_1.CreateUserController(createUserUseCase);
+exports.createUserController = createUserController;

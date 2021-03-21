@@ -1,0 +1,11 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.unloackLoginController = exports.unloackLoginUseCase = void 0;
+const MongodbAuthRepository_1 = require("../../../repositories/implementations/MongodbAuthRepository");
+const UnloackLoginController_1 = require("../UnlockLogin/UnloackLoginController");
+const UnloackLoginUseCase_1 = require("../UnlockLogin/UnloackLoginUseCase");
+const mongodbAuthRepository = new MongodbAuthRepository_1.MongodbAuthRepository();
+const unloackLoginUseCase = new UnloackLoginUseCase_1.UnloackLoginUseCase(mongodbAuthRepository);
+exports.unloackLoginUseCase = unloackLoginUseCase;
+const unloackLoginController = new UnloackLoginController_1.UnloackLoginController(unloackLoginUseCase);
+exports.unloackLoginController = unloackLoginController;

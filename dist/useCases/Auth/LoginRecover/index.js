@@ -1,0 +1,13 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.loginRecoverController = exports.loginRecoverUseCase = void 0;
+const UmblerMailProvider_1 = require("../../../providers/implementations/UmblerMailProvider");
+const MongodbAuthRepository_1 = require("../../../repositories/implementations/MongodbAuthRepository");
+const LoginRecoverController_1 = require("./LoginRecoverController");
+const LoginRecoverUseCase_1 = require("./LoginRecoverUseCase");
+const mongodbAuthRepository = new MongodbAuthRepository_1.MongodbAuthRepository();
+const umblerMailProvider = new UmblerMailProvider_1.UmblerMailProvider();
+const loginRecoverUseCase = new LoginRecoverUseCase_1.LoginRecoverUseCase(mongodbAuthRepository, umblerMailProvider);
+exports.loginRecoverUseCase = loginRecoverUseCase;
+const loginRecoverController = new LoginRecoverController_1.LoginRecoverController(loginRecoverUseCase);
+exports.loginRecoverController = loginRecoverController;

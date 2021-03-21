@@ -4,8 +4,9 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "dev": "tsnd --transpile-only --respawn --ignore-watch node_modules src/server.ts",
-    "start": "tsnd src/server.ts"
+    "start": "node dist/server.js",
+    "build": "rimraf dist && tsc",
+    "dev": "tsnd --transpile-only --respawn --ignore-watch node_modules src/server.ts"
   },
   "dependencies": {
     "@types/bcrypt": "^3.0.0",
@@ -37,6 +38,7 @@
     "@twilio-labs/serverless-runtime-types": "^1.1.8",
     "@types/cors": "^2.8.10",
     "@types/follow-redirects": "^1.13.0",
+    "rimraf": "^3.0.2",
     "ts-node": "^9.0.0",
     "ts-node-dev": "^1.0.0"
   }

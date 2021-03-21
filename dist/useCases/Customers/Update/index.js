@@ -1,0 +1,11 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.updateCustomerController = exports.updateCustomerUseCase = void 0;
+const MongodbCustomerRepository_1 = require("../../../repositories/implementations/MongodbCustomerRepository");
+const UpdateCustomerController_1 = require("./UpdateCustomerController");
+const UpdateCustomerUseCase_1 = require("./UpdateCustomerUseCase");
+const mongodbCustomerRepository = new MongodbCustomerRepository_1.MongodbCustomerRepository();
+const updateCustomerUseCase = new UpdateCustomerUseCase_1.UpdateCustomerUseCase(mongodbCustomerRepository);
+exports.updateCustomerUseCase = updateCustomerUseCase;
+const updateCustomerController = new UpdateCustomerController_1.UpdateCustomerController(updateCustomerUseCase);
+exports.updateCustomerController = updateCustomerController;

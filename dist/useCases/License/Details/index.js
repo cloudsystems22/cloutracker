@@ -1,0 +1,11 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.detailsLicenseController = exports.detailsLicenseUseCase = void 0;
+const MongodbLicenseRepository_1 = require("../../../repositories/implementations/MongodbLicenseRepository");
+const DetailsLicenseController_1 = require("./DetailsLicenseController");
+const DetailsLicenseUseCase_1 = require("./DetailsLicenseUseCase");
+const mongodbLicenseRepository = new MongodbLicenseRepository_1.MongodbLicenseRepository;
+const detailsLicenseUseCase = new DetailsLicenseUseCase_1.DetailsLicenseUseCase(mongodbLicenseRepository);
+exports.detailsLicenseUseCase = detailsLicenseUseCase;
+const detailsLicenseController = new DetailsLicenseController_1.DetailsLicenseController(detailsLicenseUseCase);
+exports.detailsLicenseController = detailsLicenseController;
